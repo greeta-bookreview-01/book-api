@@ -106,9 +106,13 @@ jwt:
       resource-id: book-app
       principal-attribute: preferred_username
 
-book-app:
+author-book-app:
   base-url: http://localhost:3000
-  redirect-url: ${book-app.base-url}/*
+  redirect-url: ${author-book-app.base-url}/*
+
+book-review-app:
+  base-url: http://localhost:3001
+  redirect-url: ${book-review-app.base-url}/*
 
 resilience4j:
   circuitbreaker:

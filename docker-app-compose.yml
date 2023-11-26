@@ -21,6 +21,9 @@ services:
       - SPRING_KEYCLOAK_SERVER_URL=http://book-keycloak:8080
       - SPRING_KEYCLOAK_SERVER_EXTERNAL_URL=http://localhost:8080
       - MYSQL_HOST=book-mysql
+      - BOOK_REVIEW_API_HOST=book-review
+      - BOOK_REVIEW_API_PORT=9002
+      - ZIPKIN_HOST=zipkin
     networks:
       - book
 
@@ -38,6 +41,7 @@ services:
       - SPRING_KEYCLOAK_SERVER_URL=http://book-keycloak:8080
       - SPRING_KEYCLOAK_SERVER_EXTERNAL_URL=http://localhost:8080
       - MONGODB_HOST=book-mongodb
+      - ZIPKIN_HOST=zipkin
     networks:
       - book
 

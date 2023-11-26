@@ -29,9 +29,17 @@ public class WebSecurityConfig {
                         .pathMatchers(HttpMethod.GET,"/", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                         .pathMatchers(HttpMethod.GET,"/swagger-resources/**").permitAll()
                         .pathMatchers(HttpMethod.GET,"/v3/api-docs/**").permitAll()
+                        .pathMatchers(HttpMethod.GET,"/favicon.ico").permitAll()
 
-                        .pathMatchers("/author-book", "/author-book/**").permitAll()
-                        .pathMatchers("/book-review", "/book-review/**").permitAll()
+                        .pathMatchers(HttpMethod.GET,"/author-book/v3/api-docs/**").permitAll()
+                        .pathMatchers("/author-book/api/authors", "/author-book/api/authors/**").permitAll()
+                        .pathMatchers("/author-book/api/books", "/author-book/api/books/**").permitAll()
+                        .pathMatchers("/author-book/graphql", "/author-book/graphql/**").permitAll()
+                        .pathMatchers("/author-book/graphiql", "/author-book/graphiql/**").permitAll()
+
+                        .pathMatchers(HttpMethod.GET,"/book-review/v3/api-docs/**").permitAll()
+                        .pathMatchers("/book-review/graphql", "/book-review/graphql/**").permitAll()
+                        .pathMatchers("/book-review/graphiql", "/book-review/graphiql/**").permitAll()
 
                         .anyExchange().authenticated()
                         .and()

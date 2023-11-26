@@ -17,10 +17,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/authorbookdb?characterEncoding=UTF-8&serverTimezone=UTC
-    username: change-me
-    password: change-me
+    username: authorbookuser
+    password: authorbookpass
   graphql:
     graphiql:
       enabled: true
@@ -54,7 +55,7 @@ logging:
     org.hibernate:
       SQL: DEBUG
       type.descriptor.sql.BasicBinder: TRACE
-    net.greeta.book.client.BookReviewApiClient: DEBUG
+    net.greeta.authorbook.client.BookReviewApiClient: DEBUG
 
 info:
   system: Author Book Service

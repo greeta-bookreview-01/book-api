@@ -29,8 +29,11 @@ public class KeycloakInitializerRunner implements CommandLineRunner {
     @Value("${spring.keycloak.server-url}")
     private String keycloakServerUrl;
 
-    @Value("${book-app.redirect-url}")
-    private String bookAppRedirectUrl;
+    @Value("${author-book-app.redirect-url}")
+    private String authorBookAppRedirectUrl;
+
+    @Value("${book-review-app.redirect-url}")
+    private String bookReviewAppRedirectUrl;
 
     @Override
     public void run(String... args) {
@@ -58,7 +61,7 @@ public class KeycloakInitializerRunner implements CommandLineRunner {
         clientRepresentation.setImplicitFlowEnabled(true);
         clientRepresentation.setDirectAccessGrantsEnabled(true);
         clientRepresentation.setPublicClient(true);
-        clientRepresentation.setRedirectUris(List.of(bookAppRedirectUrl));
+        clientRepresentation.setRedirectUris(List.of(authorBookAppRedirectUrl, bookReviewAppRedirectUrl));
         clientRepresentation.setWebOrigins(List.of("*"));
         clientRepresentation.setDefaultRoles(new String[]{WebSecurityConfig.BOOK_USER});
         realmRepresentation.setClients(List.of(clientRepresentation));

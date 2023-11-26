@@ -81,6 +81,8 @@ services:
       MONGODB_ROOT_PASSWORD: secret
     healthcheck:
       test: echo 'db.stats().ok' | mongosh localhost:27017/bookreviewdb --quiet
+    volumes:
+      - ./docker-conf/mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
     networks:
       - book
 
